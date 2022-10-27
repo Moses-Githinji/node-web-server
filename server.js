@@ -33,7 +33,7 @@ const serveFile = async (filePath, contentType, response) => {
   } catch (error) {
     console.log(error);
     myEmmiter.emit('log', `${error.name}: ${error.message}`, 'errorLog.txt');
-    response.statusCode(500); // server error if we couldn't read the data that we want from the server
+    response.statusCode = 500; // server error if we couldn't read the data that we want from the server
     response.end();
   }
 };
